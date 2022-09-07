@@ -1,0 +1,55 @@
+﻿@page
+@model RecruitCatShigavkp.Pages.ApplyNowModel
+@{
+	ViewData["Title"] = "Apply Now";
+}
+
+<style>
+
+body {
+	background-color: paleturquoise;
+}
+
+	label {
+		display: block;
+		margin: 10px 0;
+		color: black;  
+	}
+
+	.submitBtn {
+		display: block;
+		color: black;
+	}
+
+	input, textarea {
+		margin: 10px;
+	}
+
+	textarea {
+		display: block;
+	}
+
+</style>
+
+<h2>Please provide below details:</h2>
+
+<form>
+	<label for="fname">First Name</label>
+	<input type="text" id="fname" name="fname">
+	<label for="lname">Last Name</label>
+	<input type="text" id="lname" name="lname">
+	<label for="cnumber">Contact Number</label>
+	<input type="text" id="lname" name="cnumber">
+	<label for="Mail">Email ID</label>
+	<input type="text" id="lname" name="mail">
+
+	<label for="relatedfield">Please select related field</label>
+	<select name="relatedfield">
+		<option value="it">IT</option>
+		<option value="finance">Finance & Accounting</option>
+		<option value="market">Sales & Marketing</option>
+		<option value="food">Hotel Management</option>
+	</select>
+
+	<input type="submit" class="submitBtn" value="Submit" />
+</form>
