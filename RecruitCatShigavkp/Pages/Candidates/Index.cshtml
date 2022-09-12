@@ -1,0 +1,66 @@
+﻿@page
+@model RecruitCatShigavkp.Pages.Candidates.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidate[0].candidateFname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidate[0].candidateLname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidate[0].targetSalary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidate[0].startDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidate[0].emailId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidate[0].mobileNumber)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Candidate) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.candidateFname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.candidateLname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.targetSalary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.startDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.emailId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mobileNumber)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.candidateId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.candidateId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.candidateId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

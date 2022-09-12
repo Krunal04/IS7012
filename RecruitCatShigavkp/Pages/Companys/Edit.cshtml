@@ -1,0 +1,65 @@
+﻿@page
+@model RecruitCatShigavkp.Pages.Companys.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Company</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Company.companyId" />
+            <div class="form-group">
+                <label asp-for="Company.companyName" class="control-label"></label>
+                <input asp-for="Company.companyName" class="form-control" />
+                <span asp-validation-for="Company.companyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Company.position" class="control-label"></label>
+                <input asp-for="Company.position" class="form-control" />
+                <span asp-validation-for="Company.position" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Company.min_salary" class="control-label"></label>
+                <input asp-for="Company.min_salary" class="form-control" />
+                <span asp-validation-for="Company.min_salary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Company.max_salary" class="control-label"></label>
+                <input asp-for="Company.max_salary" class="form-control" />
+                <span asp-validation-for="Company.max_salary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Company.start_date" class="control-label"></label>
+                <input asp-for="Company.start_date" class="form-control" />
+                <span asp-validation-for="Company.start_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Company.location" class="control-label"></label>
+                <input asp-for="Company.location" class="form-control" />
+                <span asp-validation-for="Company.location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Company.companyRank" class="control-label"></label>
+                <input asp-for="Company.companyRank" class="form-control" />
+                <span asp-validation-for="Company.companyRank" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

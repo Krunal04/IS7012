@@ -1,0 +1,59 @@
+﻿@page
+@model RecruitCatShigavkp.Pages.Candidates.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Candidate</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Candidate.candidateFname" class="control-label"></label>
+                <input asp-for="Candidate.candidateFname" class="form-control" />
+                <span asp-validation-for="Candidate.candidateFname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Candidate.candidateLname" class="control-label"></label>
+                <input asp-for="Candidate.candidateLname" class="form-control" />
+                <span asp-validation-for="Candidate.candidateLname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Candidate.targetSalary" class="control-label"></label>
+                <input asp-for="Candidate.targetSalary" class="form-control" />
+                <span asp-validation-for="Candidate.targetSalary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Candidate.startDate" class="control-label"></label>
+                <input asp-for="Candidate.startDate" class="form-control" />
+                <span asp-validation-for="Candidate.startDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Candidate.emailId" class="control-label"></label>
+                <input asp-for="Candidate.emailId" class="form-control" />
+                <span asp-validation-for="Candidate.emailId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Candidate.mobileNumber" class="control-label"></label>
+                <input asp-for="Candidate.mobileNumber" class="form-control" />
+                <span asp-validation-for="Candidate.mobileNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
