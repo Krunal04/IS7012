@@ -19,7 +19,7 @@ namespace RecruitCatShigavkp.Pages.Jobtitles
             _context = context;
         }
 
-      public Jobtitle Jobtitle { get; set; } = default!; 
+      public Jobtitle Jobtitle { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {

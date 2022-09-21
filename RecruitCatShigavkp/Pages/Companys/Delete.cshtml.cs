@@ -20,7 +20,7 @@ namespace RecruitCatShigavkp.Pages.Companys
         }
 
         [BindProperty]
-      public Company Company { get; set; } = default!;
+      public Company Company { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {

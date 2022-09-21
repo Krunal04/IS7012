@@ -21,17 +21,20 @@ namespace RecruitCatShigavkp.Pages.Candidates
 
         public IActionResult OnGet()
         {
+        ViewData["companyId"] = new SelectList(_context.Company, "companyId", "companyName");
+        ViewData["industryId"] = new SelectList(_context.Industry, "industryId", "industryName");
+        ViewData["jobtitleId"] = new SelectList(_context.Jobtitle, "jobtitleId", "titleName");
             return Page();
         }
 
         [BindProperty]
-        public Candidate Candidate { get; set; } = default!;
+        public Candidate Candidate { get; set; }
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Candidate == null || Candidate == null)
+          if (!ModelState.IsValid)
             {
                 return Page();
             }

@@ -36,6 +36,7 @@ namespace RecruitCatShigavkp.Pages.Companys
                 return NotFound();
             }
             Company = company;
+           ViewData["industryId"] = new SelectList(_context.Industry, "industryId", "industryId");
             return Page();
         }
 
@@ -71,7 +72,7 @@ namespace RecruitCatShigavkp.Pages.Companys
 
         private bool CompanyExists(int id)
         {
-          return (_context.Company?.Any(e => e.companyId == id)).GetValueOrDefault();
+          return _context.Company.Any(e => e.companyId == id);
         }
     }
 }

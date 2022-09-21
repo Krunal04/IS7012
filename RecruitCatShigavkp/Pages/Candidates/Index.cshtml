@@ -5,10 +5,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Candidate Details</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create" style="text-decoration: none">Add Candidate Details</a>
 </p>
 <table class="table">
     <thead>
@@ -30,6 +30,15 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Candidate[0].mobileNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidate[0].Company)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidate[0].Jobtitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidate[0].Industry)
             </th>
             <th></th>
         </tr>
@@ -56,9 +65,18 @@
                 @Html.DisplayFor(modelItem => item.mobileNumber)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.candidateId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.candidateId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.candidateId">Delete</a>
+                    @Html.DisplayFor(modelItem => item.Company.companyName)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Jobtitle.titleName)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Industry.industryType)
+            </td>
+            <td>
+                    <a asp-page="./Edit" style="text-decoration: none" asp-route-id="@item.candidateId">Edit Candidate Details</a> |
+                    <a asp-page="./Details" style="text-decoration: none" asp-route-id="@item.candidateId">View Candidate Details</a> |
+                    <a asp-page="./Delete" style="text-decoration: none" asp-route-id="@item.candidateId">Remove Candidate Details</a>
             </td>
         </tr>
 }

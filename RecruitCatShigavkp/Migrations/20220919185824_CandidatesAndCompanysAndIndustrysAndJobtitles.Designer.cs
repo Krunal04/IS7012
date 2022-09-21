@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RecruitCatShigavkp.Data;
 
@@ -11,9 +12,10 @@ using RecruitCatShigavkp.Data;
 namespace RecruitCatShigavkp.Migrations
 {
     [DbContext(typeof(RecruitCatShigavkpContext))]
-    partial class RecruitCatShigavkpContextModelSnapshot : ModelSnapshot
+    [Migration("20220919185824_CandidatesAndCompanysAndIndustrysAndJobtitles")]
+    partial class CandidatesAndCompanysAndIndustrysAndJobtitles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -65,7 +67,7 @@ namespace RecruitCatShigavkp.Migrations
 
                     b.HasIndex("jobtitleId");
 
-                    b.ToTable("Candidate", (string)null);
+                    b.ToTable("Candidate");
                 });
 
             modelBuilder.Entity("RecruitCatShigavkp.Models.Company", b =>
@@ -104,7 +106,7 @@ namespace RecruitCatShigavkp.Migrations
 
                     b.HasIndex("industryId");
 
-                    b.ToTable("Company", (string)null);
+                    b.ToTable("Company");
                 });
 
             modelBuilder.Entity("RecruitCatShigavkp.Models.Industry", b =>
@@ -123,7 +125,7 @@ namespace RecruitCatShigavkp.Migrations
 
                     b.HasKey("industryId");
 
-                    b.ToTable("Industry", (string)null);
+                    b.ToTable("Industry");
                 });
 
             modelBuilder.Entity("RecruitCatShigavkp.Models.Jobtitle", b =>
@@ -154,7 +156,7 @@ namespace RecruitCatShigavkp.Migrations
 
                     b.HasKey("jobtitleId");
 
-                    b.ToTable("Jobtitle", (string)null);
+                    b.ToTable("Jobtitle");
                 });
 
             modelBuilder.Entity("RecruitCatShigavkp.Models.Candidate", b =>

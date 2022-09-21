@@ -19,7 +19,7 @@ namespace RecruitCatShigavkp.Pages.Candidates
             _context = context;
         }
 
-      public Candidate Candidate { get; set; } = default!; 
+      public Candidate Candidate { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {

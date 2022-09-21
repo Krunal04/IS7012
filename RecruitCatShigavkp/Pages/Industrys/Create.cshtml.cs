@@ -25,13 +25,13 @@ namespace RecruitCatShigavkp.Pages.Industrys
         }
 
         [BindProperty]
-        public Industry Industry { get; set; } = default!;
+        public Industry Industry { get; set; }
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Industry == null || Industry == null)
+          if (!ModelState.IsValid)
             {
                 return Page();
             }

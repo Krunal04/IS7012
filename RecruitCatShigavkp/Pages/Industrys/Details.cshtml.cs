@@ -19,7 +19,7 @@ namespace RecruitCatShigavkp.Pages.Industrys
             _context = context;
         }
 
-      public Industry Industry { get; set; } = default!; 
+      public Industry Industry { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {

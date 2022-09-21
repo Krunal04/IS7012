@@ -25,13 +25,13 @@ namespace RecruitCatShigavkp.Pages.Jobtitles
         }
 
         [BindProperty]
-        public Jobtitle Jobtitle { get; set; } = default!;
+        public Jobtitle Jobtitle { get; set; }
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Jobtitle == null || Jobtitle == null)
+          if (!ModelState.IsValid)
             {
                 return Page();
             }

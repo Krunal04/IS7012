@@ -71,7 +71,7 @@ namespace RecruitCatShigavkp.Pages.Jobtitles
 
         private bool JobtitleExists(int id)
         {
-          return (_context.Jobtitle?.Any(e => e.jobtitleId == id)).GetValueOrDefault();
+          return _context.Jobtitle.Any(e => e.jobtitleId == id);
         }
     }
 }

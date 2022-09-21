@@ -19,7 +19,7 @@ namespace RecruitCatShigavkp.Pages.Companys
             _context = context;
         }
 
-      public Company Company { get; set; } = default!; 
+      public Company Company { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,7 +28,7 @@ namespace RecruitCatShigavkp.Pages.Companys
                 return NotFound();
             }
 
-            var company = await _context.Company.FirstOrDefaultAsync(m => m.companyId == id);
+            var company = await _context.Company.Include(x => x.Candidates).FirstOrDefaultAsync(m => m.companyId == id);
             if (company == null)
             {
                 return NotFound();
@@ -38,6 +38,6 @@ namespace RecruitCatShigavkp.Pages.Companys
                 Company = company;
             }
             return Page();
-        }
     }
+        }
 }

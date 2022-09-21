@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RecruitCatShigavkp.Data;
 
@@ -11,9 +12,10 @@ using RecruitCatShigavkp.Data;
 namespace RecruitCatShigavkp.Migrations
 {
     [DbContext(typeof(RecruitCatShigavkpContext))]
-    partial class RecruitCatShigavkpContextModelSnapshot : ModelSnapshot
+    [Migration("20220918225837_Candidates1")]
+    partial class Candidates1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,25 +32,26 @@ namespace RecruitCatShigavkp.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("candidateId"), 1L, 1);
 
+                    b.Property<int?>("Company_NamecompanyId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Industry_NameindustryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Jobtitle_NamejobtitleId")
+                        .HasColumnType("int");
+
                     b.Property<string>("candidateFname")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("candidateLname")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("companyId")
-                        .HasColumnType("int");
-
                     b.Property<string>("emailId")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("industryId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("jobtitleId")
-                        .HasColumnType("int");
-
                     b.Property<string>("mobileNumber")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("startDate")
@@ -59,13 +62,13 @@ namespace RecruitCatShigavkp.Migrations
 
                     b.HasKey("candidateId");
 
-                    b.HasIndex("companyId");
+                    b.HasIndex("Company_NamecompanyId");
 
-                    b.HasIndex("industryId");
+                    b.HasIndex("Industry_NameindustryId");
 
-                    b.HasIndex("jobtitleId");
+                    b.HasIndex("Jobtitle_NamejobtitleId");
 
-                    b.ToTable("Candidate", (string)null);
+                    b.ToTable("Candidate");
                 });
 
             modelBuilder.Entity("RecruitCatShigavkp.Models.Company", b =>
@@ -76,13 +79,13 @@ namespace RecruitCatShigavkp.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("companyId"), 1L, 1);
 
+                    b.Property<int>("Ind_NameindustryId")
+                        .HasColumnType("int");
+
                     b.Property<string>("companyName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("companyRank")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("industryId")
                         .HasColumnType("int");
 
                     b.Property<string>("location")
@@ -102,9 +105,9 @@ namespace RecruitCatShigavkp.Migrations
 
                     b.HasKey("companyId");
 
-                    b.HasIndex("industryId");
+                    b.HasIndex("Ind_NameindustryId");
 
-                    b.ToTable("Company", (string)null);
+                    b.ToTable("Company");
                 });
 
             modelBuilder.Entity("RecruitCatShigavkp.Models.Industry", b =>
@@ -123,7 +126,7 @@ namespace RecruitCatShigavkp.Migrations
 
                     b.HasKey("industryId");
 
-                    b.ToTable("Industry", (string)null);
+                    b.ToTable("Industry");
                 });
 
             modelBuilder.Entity("RecruitCatShigavkp.Models.Jobtitle", b =>
@@ -154,54 +157,60 @@ namespace RecruitCatShigavkp.Migrations
 
                     b.HasKey("jobtitleId");
 
-                    b.ToTable("Jobtitle", (string)null);
+                    b.ToTable("Jobtitle");
                 });
 
             modelBuilder.Entity("RecruitCatShigavkp.Models.Candidate", b =>
                 {
-                    b.HasOne("RecruitCatShigavkp.Models.Company", "Company")
-                        .WithMany("Candidates")
-                        .HasForeignKey("companyId");
+                    b.HasOne("RecruitCatShigavkp.Models.Company", "Company_Name")
+                        .WithMany("Employees")
+                        .HasForeignKey("Company_NamecompanyId");
 
-                    b.HasOne("RecruitCatShigavkp.Models.Industry", "Industry")
-                        .WithMany("Candidate")
-                        .HasForeignKey("industryId");
+                    b.HasOne("RecruitCatShigavkp.Models.Industry", "Industry_Name")
+                        .WithMany("Resources")
+                        .HasForeignKey("Industry_NameindustryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("RecruitCatShigavkp.Models.Jobtitle", "Jobtitle")
-                        .WithMany("Candidate")
-                        .HasForeignKey("jobtitleId");
+                    b.HasOne("RecruitCatShigavkp.Models.Jobtitle", "Jobtitle_Name")
+                        .WithMany("Person")
+                        .HasForeignKey("Jobtitle_NamejobtitleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Company");
+                    b.Navigation("Company_Name");
 
-                    b.Navigation("Industry");
+                    b.Navigation("Industry_Name");
 
-                    b.Navigation("Jobtitle");
+                    b.Navigation("Jobtitle_Name");
                 });
 
             modelBuilder.Entity("RecruitCatShigavkp.Models.Company", b =>
                 {
-                    b.HasOne("RecruitCatShigavkp.Models.Industry", "Industry")
-                        .WithMany("Company")
-                        .HasForeignKey("industryId");
+                    b.HasOne("RecruitCatShigavkp.Models.Industry", "Ind_Name")
+                        .WithMany("Companies")
+                        .HasForeignKey("Ind_NameindustryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Industry");
+                    b.Navigation("Ind_Name");
                 });
 
             modelBuilder.Entity("RecruitCatShigavkp.Models.Company", b =>
                 {
-                    b.Navigation("Candidates");
+                    b.Navigation("Employees");
                 });
 
             modelBuilder.Entity("RecruitCatShigavkp.Models.Industry", b =>
                 {
-                    b.Navigation("Candidate");
+                    b.Navigation("Companies");
 
-                    b.Navigation("Company");
+                    b.Navigation("Resources");
                 });
 
             modelBuilder.Entity("RecruitCatShigavkp.Models.Jobtitle", b =>
                 {
-                    b.Navigation("Candidate");
+                    b.Navigation("Person");
                 });
 #pragma warning restore 612, 618
         }

@@ -20,7 +20,7 @@ namespace RecruitCatShigavkp.Pages.Jobtitles
         }
 
         [BindProperty]
-      public Jobtitle Jobtitle { get; set; } = default!;
+      public Jobtitle Jobtitle { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {

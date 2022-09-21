@@ -5,10 +5,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Job Title Details</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create" style="text-decoration: none">Add Job Titles</a>
 </p>
 <table class="table">
     <thead>
@@ -56,9 +56,9 @@
                 @Html.DisplayFor(modelItem => item.jobType)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.jobtitleId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.jobtitleId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.jobtitleId">Delete</a>
+                    <a asp-page="./Edit" style="text-decoration: none" asp-route-id="@item.jobtitleId">Edit Job Title Details</a> |
+                    <a asp-page="./Details" style="text-decoration: none" asp-route-id="@item.jobtitleId">View Job Title Details</a> |
+                    <a asp-page="./Delete" style="text-decoration: none" asp-route-id="@item.jobtitleId">Remove Job Title Details</a>
             </td>
         </tr>
 }

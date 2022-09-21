@@ -12,7 +12,14 @@
 body {
 font-family: "Garamond",serif;
 font-weight: bold;
+background-color: paleturquoise
 }
+
+    table, th, td {
+        border: 1px solid grey;
+    }
+
+
 </style>
 <body>
     <header>
@@ -39,6 +46,18 @@ font-weight: bold;
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/ApplyNow"><strong>Apply Now</strong></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Candidates/Index"><strong>Candidates List</strong></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/JobTitles/Index"><strong>Job Titles List</strong></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Companys/Index"><strong>Company Name</strong></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Industrys/Index"><strong>Industry Name</strong></a>
                         </li>
                     </ul>
                 </div>

@@ -71,7 +71,7 @@ namespace RecruitCatShigavkp.Pages.Industrys
 
         private bool IndustryExists(int id)
         {
-          return (_context.Industry?.Any(e => e.industryId == id)).GetValueOrDefault();
+          return _context.Industry.Any(e => e.industryId == id);
         }
     }
 }

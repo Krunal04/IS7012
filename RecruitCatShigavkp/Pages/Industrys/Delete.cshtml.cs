@@ -20,7 +20,7 @@ namespace RecruitCatShigavkp.Pages.Industrys
         }
 
         [BindProperty]
-      public Industry Industry { get; set; } = default!;
+      public Industry Industry { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
